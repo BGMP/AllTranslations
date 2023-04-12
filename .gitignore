@@ -1,3 +1,4 @@
+# Maven generated files
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -7,5 +8,31 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+
+# Mac OSX generated files
+.DS_Store
+
+# Eclipse generated files
+.classpath
+.project
+.settings
+
+# IntelliJ IDEA
+.idea
+*.iml
+
+# Vim generated files
+*~
+*.swp
+
+# XCode 3 and 4 generated files
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata
+*class
