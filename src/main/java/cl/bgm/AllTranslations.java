@@ -93,6 +93,14 @@ public abstract class AllTranslations<O> {
     this.translationsMap.put(locale, translations);
   }
 
+  public String get(String key, O object, Object... args) {
+    return this.get(key, this.getLocale(object), args);
+  }
+
+  public String get(Translatable translatable, O object) {
+    return this.get(translatable, this.getLocale(object));
+  }
+
   public String get(Translatable translatable, Locale locale) {
     return this.get(translatable.getKey(), locale, translatable.getArgs());
   }

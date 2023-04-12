@@ -116,17 +116,20 @@ main.welcome = Bienvenido, {0}!
 ```
 
 Finally, use the framework! Here's a very basic example of how to use AllTranslations:
+
 ```java
+import java.util.Locale;
+
 public class AllTranslationsExample {
-    public static void main(String[] args) {
-        Translations translations = new Translations();
+  public static void main(String[] args) {
+    Translations translations = new Translations();
 
-        User user1 = new User("Steve", "en_us");
-        User user2 = new User("José", "es_es");
+    User user1 = new User("Steve", "en_us");
+    User user2 = new User("José", "es_es");
 
-        System.out.println("To user1: " + translations.get("main.welcome", user1.getLocale(), user1.getName()));
-        System.out.println("To user2: " + translations.get("main.welcome", user2.getLocale(), user2.getName()));
-    }
+    System.out.println("To user1: " + translations.get("main.welcome", user1, user1.getName()));
+    System.out.println("To user2: " + translations.get("main.welcome", user2, user2.getName()));
+  }
 }
 ```
 
@@ -138,7 +141,7 @@ To user2: Benvenido, José!
 
 ## Translation Arguments
 As you may have noticed in the example presented above, AllTranslations supports translation arguments by default.
-At your locale file, simply name them `{0}, {1}, {2}`, etc respectively, and then you may trail everything you want to
+At your locale file, simply name them `{0}, {1}, {2}`, etc. respectively, and then you may trail everything you want to
 replace them with using the `AllTranslations#get()` method.
 
 For example, given the string `main.arguments = Their names are {0} and {1}.`, you may replace the arguments `{0}` and
@@ -175,7 +178,7 @@ public class AllTranslationsExample {
     public static void main(String[] args) {
         Translations translations = new Translations();
 
-        int liters = Math.random();
+        int liters = Math.random() * 10;
         String translation = translations.get("nested.string", "en_us", liters, liters == 1 ? Translatable.of("nested.liter") : Translatable.of("nested.liters"));
         
         System.out.println(translation);
