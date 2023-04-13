@@ -63,25 +63,25 @@ offer translations for. In this example, a simple `User` object has been created
 
 ```java
 public class User {
-    private String name;
-    private String locale;
+  private String name;
+  private String locale;
 
-    public User(String name, String locale) {
-        this.name = name;
-        this.locale = locale;
-    }
+  public User(String name, String locale) {
+    this.name = name;
+    this.locale = locale;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getLocale() {
-        return locale;
-    }
+  public String getLocale() {
+    return locale;
+  }
 
-    public void setLocale(String locale) {
-        this.locale = locale;
-    }
+  public void setLocale(String locale) { 
+    this.locale = locale;
+  }
 }
 ```
 
@@ -92,15 +92,15 @@ look at follows:
 import java.util.Locale;
 
 public class Translations extends AllTranslations<User> {
-    @Override
-    public Locale getLocale(User user) {
-        return Locale.forLanguageTag(user.getLocale());
-    }
+  @Override
+  public Locale getLocale(User user) {
+    return Locale.forLanguageTag(user.getLocale());
+  }
 
-    @Override
-    public void setLocale(User user, Locale locale) {
-        user.setLocale(locale.toLanguageTag());
-    }
+  @Override
+  public void setLocale(User user, Locale locale) {
+    user.setLocale(locale.toLanguageTag());
+  }
 }
 ```
 
@@ -148,11 +148,11 @@ For example, given the string `main.arguments = Their names are {0} and {1}.`, y
 `{1}` as follows:
 ```java
 public class AllTranslationsExample {
-    public static void main(String[] args) {
-        Translations translations = new Translations();
-        String translation = translations.get("main.arguments", "en_us", "Steve", "José");
-        System.out.println(translation);
-    }
+  public static void main(String[] args) {
+    Translations translations = new Translations();
+    String translation = translations.get("main.arguments", "en_us", "Steve", "José");
+    System.out.println(translation);
+  }
 }
 ```
 
@@ -175,14 +175,14 @@ nested.liters = liters
 import cl.bgm.Translatable;
 
 public class AllTranslationsExample {
-    public static void main(String[] args) {
-        Translations translations = new Translations();
+  public static void main(String[] args) {
+    Translations translations = new Translations();
 
-        int liters = Math.random() * 10;
-        String translation = translations.get("nested.string", "en_us", liters, liters == 1 ? Translatable.of("nested.liter") : Translatable.of("nested.liters"));
-        
-        System.out.println(translation);
-    }
+    int liters = Math.random() * 10;
+    String translation = translations.get("nested.string", "en_us", liters, liters == 1 ? Translatable.of("nested.liter") : Translatable.of("nested.liters"));
+
+    System.out.println(translation);
+  }
 }
 ```
 
