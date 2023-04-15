@@ -1,11 +1,12 @@
 package cl.bgm.util;
 
+import io.github.classgraph.ClassGraph;
+import io.github.classgraph.ScanResult;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -29,8 +30,7 @@ public interface PropertiesUtils {
 
   static Properties getFromResources(String path, Charset charset) {
     final Properties properties = new Properties();
-    final InputStream propertiesStream =
-        FileUtils.getContextClassLoader().getResourceAsStream(path);
+    final InputStream propertiesStream = FileUtils.getResourceAsStream(path);
     if (propertiesStream == null) return null;
 
     try {
@@ -42,17 +42,12 @@ public interface PropertiesUtils {
     return properties;
   }
 
-  static List<String> getResourceProperties(String path) {
-    List<String> resourceFiles = FileUtils.getResourceFiles(path);
-    List<String> propertiesFiles = new ArrayList<>();
-
-    for (String resource : resourceFiles) {
-      Properties properties = getFromResources(String.format("%s/%s", path, resource));
-      if (properties == null) continue;
-
-      propertiesFiles.add(resource);
+  static List<String> getResourcePropertiesPaths(String path) {
+    List<String> resourcePaths;
+    try (ScanResult scanResult = new ClassGraph().acceptPaths(path).scan()) {
+      resourcePaths = scanResult.getResourcesWithExtension("properties").getPaths();
     }
 
-    return propertiesFiles;
+    return resourcePaths;
   }
 }

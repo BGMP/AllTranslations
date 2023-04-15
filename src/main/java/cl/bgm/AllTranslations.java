@@ -40,7 +40,7 @@ public abstract class AllTranslations<O> {
       e.printStackTrace();
       System.out.println("Could not initialize AllTranslations! Missing template strings file.");
       System.out.println(
-          "Make sure " + TEMPLATE_FILE + " is present within resources/" + I18N_DIRECTORY + "/.");
+          "Make sure " + TEMPLATE_FILE + " is present in resources at " + I18N_DIRECTORY + "/.");
       return;
     }
 
@@ -57,14 +57,15 @@ public abstract class AllTranslations<O> {
   }
 
   private void loadTranslationFiles() {
-    for (String propertiesResource : PropertiesUtils.getResourceProperties(I18N_DIRECTORY)) {
-      if (propertiesResource.equals(TEMPLATE_FILE)) continue;
+    for (String propertiesResourcePath :
+        PropertiesUtils.getResourcePropertiesPaths(I18N_DIRECTORY)) {
+      if (propertiesResourcePath.equals(TEMPLATE_FILE)) continue;
 
-      Properties properties =
-          PropertiesUtils.getFromResources(I18N_DIRECTORY + "/" + propertiesResource);
+      Properties properties = PropertiesUtils.getFromResources(propertiesResourcePath);
       if (properties == null) continue;
 
-      String languageTag = propertiesResource.replaceAll(".properties", "");
+      String languageTag =
+          propertiesResourcePath.replaceAll(I18N_DIRECTORY + "/", "").replaceAll(".properties", "");
       Locale locale = Locale.forLanguageTag(languageTag.replaceAll("_", "-"));
 
       this.translationFilesMap.put(locale, properties);
