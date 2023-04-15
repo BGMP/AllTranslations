@@ -19,22 +19,18 @@ Table of Contents
 ### Maven
 
 ```xml
-<repositories>
-  <repository>
-    <id>bgm</id>
-    <url>https://maven.bgm.cl/</url>
-  </repository>
-</repositories>
+<repository>
+  <id>bgm</id>
+  <url>https://maven.bgm.cl/</url>
+</repository>
 ```
 
 ```xml
-<dependencies>
-  <dependency>
-    <groupId>cl.bgm</groupId>
-    <artifactId>AllTranslations</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-  </dependency>
-</dependencies>
+<dependency>
+  <groupId>cl.bgm</groupId>
+  <artifactId>AllTranslations</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+</dependency>
 ```
 
 ## Structure
