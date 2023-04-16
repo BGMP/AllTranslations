@@ -34,6 +34,9 @@ public abstract class AllTranslations<O> {
   private Map<Locale, Map<String, String>> translationsMap = new HashMap<>();
 
   public AllTranslations() {
+    // Set the context class loader for the thread in action. This way we get the right resource files.
+    Thread.currentThread().setContextClassLoader(this.getClass().getClassLoader());
+
     try {
       this.loadTemplateFile();
     } catch (MissingTemplateFileException e) {
