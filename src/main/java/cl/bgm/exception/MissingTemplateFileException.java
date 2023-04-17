@@ -1,6 +1,6 @@
 package cl.bgm.exception;
 
-/** Missing locale exception. */
+/** Missing templates exception. */
 public class MissingTemplateFileException extends Exception {
 
   public MissingTemplateFileException() {
