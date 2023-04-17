@@ -1,13 +1,17 @@
 package cl.bgm.util;
 
 import io.github.classgraph.ClassGraph;
+import io.github.classgraph.Resource;
+import io.github.classgraph.ResourceList;
 import io.github.classgraph.ScanResult;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 
 /** Specific utils for handling {@link Properties} files. */
@@ -29,12 +33,18 @@ public interface PropertiesUtils {
   }
 
   static Properties getFromResources(String path, Charset charset) {
-    final Properties properties = new Properties();
-    final InputStream propertiesStream = FileUtils.getResourceAsStream(path);
-    if (propertiesStream == null) return null;
+    Properties properties = null;
 
-    try {
-      properties.load(new InputStreamReader(propertiesStream, charset));
+    try (ScanResult scanResult = new ClassGraph().scan()) {
+      ResourceList resourcesWithPath = scanResult.getResourcesWithPath(path);
+      Optional<Resource> match = resourcesWithPath.stream().findFirst();
+      if (!match.isPresent()) return null;
+
+      String content = match.get().getContentAsString();
+      InputStream stream = new ByteArrayInputStream(content.getBytes(charset));
+
+      properties = new Properties();
+      properties.load(new InputStreamReader(stream));
     } catch (IOException e) {
       e.printStackTrace();
     }
