@@ -1,9 +1,13 @@
 # AllTranslations
 
+<img align="right" width="150" height="150" src="https://user-images.githubusercontent.com/26081543/232375880-516c6c17-bf49-4463-92ed-43dd1b4f7647.png">
+
 **AllTranslations** is a very simple localisation framework for your Java projects!
 
 Ever wanted to add support for multiple languages to your Java applications without having to introduce a ton of
 complexity to your codebase? Well, AllTranslations might just be what you were looking for!
+
+This framework offers a very simplistic approach to handling localisation for your Java projects via [.properties](https://en.wikipedia.org/wiki/.properties) files, extending support for all [ISO_639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes#Table_of_all_possible_two_letter_codes) language codes and [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) country codes recognised combinations.
 
 Table of Contents
 ===
