@@ -7,7 +7,7 @@
 Ever wanted to add support for multiple languages to your Java applications without having to introduce a ton of
 complexity to your codebase? Well, AllTranslations might just be what you were looking for!
 
-This framework offers a very simplistic approach to handling localisation for your Java projects via [.properties](https://en.wikipedia.org/wiki/.properties) files, extending support for all [ISO_639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes#Table_of_all_possible_two_letter_codes) language codes and [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) country codes recognised combinations.
+This framework offers a very simplistic approach to handling localisation via [.properties](https://en.wikipedia.org/wiki/.properties) files, and supports all [ISO_639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes#Table_of_all_possible_two_letter_codes) and [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) recognised combinations.
 
 Table of Contents
 ===
