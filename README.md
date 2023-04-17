@@ -1,6 +1,6 @@
 # AllTranslations
 
-<img align="right" width="175" height="175" src="https://user-images.githubusercontent.com/26081543/232375880-516c6c17-bf49-4463-92ed-43dd1b4f7647.png">
+<img align="right" width="170" height="170" src="https://user-images.githubusercontent.com/26081543/232375880-516c6c17-bf49-4463-92ed-43dd1b4f7647.png">
 
 **AllTranslations** is a very simple localisation framework for your Java projects!
 
