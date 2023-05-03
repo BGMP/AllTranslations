@@ -13,7 +13,7 @@ import java.util.Properties;
  *
  * <p>This class represents the translations core, and with it you can translate strings from one
  * language to another. Declaring or extending this class means you will have to implement {@link
- * this#getLocale(O)} and {@link this#setLocale(O, String)}, {@link O} being your end user object.
+ * this#getLocale(T)} and {@link this#setLocale(T, String)}, {@link T} being your end user object.
  *
  * <p>{@link AllTranslations} relies on several {@link Properties} files to represent each supported
  * locale. These files will be loaded from <code>resources/i18n</code> by default. The default file
@@ -24,7 +24,7 @@ import java.util.Properties;
  * <code>ISO 639-1</code> language code and an <code>ISO 3166-2</code> country code, separated by an
  * underscore or hyphen. (i.e: en_UK, en-US, es_cl, etc.).
  */
-public abstract class AllTranslations<O> {
+public abstract class AllTranslations<T> {
   private static final String I18N_DIRECTORY = "i18n";
   private static final String TEMPLATE_FILE = "strings.properties";
   private static final Locale TEMPLATE_LOCALE = new Locale("en", "US");
@@ -94,11 +94,11 @@ public abstract class AllTranslations<O> {
     this.translationsMap.put(locale, translations);
   }
 
-  public String get(String key, O object, Object... args) {
+  public String get(String key, T object, Object... args) {
     return this.get(key, this.getLocale(object), args);
   }
 
-  public String get(Translatable translatable, O object) {
+  public String get(Translatable translatable, T object) {
     return this.get(translatable, this.getLocale(object));
   }
 
@@ -148,13 +148,13 @@ public abstract class AllTranslations<O> {
     return translated;
   }
 
-  public void setLocale(O object, String locale) {
+  public void setLocale(T object, String locale) {
     this.setLocale(object, Locale.forLanguageTag(locale.replaceAll("_", "-")));
   }
 
   /** Get the locale string of your end user. */
-  public abstract Locale getLocale(O object);
+  public abstract Locale getLocale(T object);
 
   /** Set the locale string of your end user. */
-  public abstract void setLocale(O object, Locale locale);
+  public abstract void setLocale(T object, Locale locale);
 }
