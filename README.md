@@ -7,7 +7,9 @@
 Ever wanted to add support for multiple languages to your Java applications without having to introduce a ton of
 complexity to your codebase? Well, AllTranslations might just be what you were looking for!
 
-This framework offers a very simplistic approach to handling localisation via [.properties](https://en.wikipedia.org/wiki/.properties) files, and supports all [ISO_639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes#Table_of_all_possible_two_letter_codes) and [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) recognised combinations.
+This framework offers a very simplistic approach to handling localisation via [.properties](https://en.wikipedia.org/wiki/.properties)
+files, and supports all [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes#Table_of_all_possible_two_letter_codes) and
+[ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) recognised combinations.
 
 Table of Contents
 ===
@@ -54,8 +56,8 @@ resources/
 The `strings.properties` file will contain all your base strings (English, US), and the rest of properties files
 represent all the available languages for your project. The name of these files consists of a language code, and a
 country code (if required). Both of these codes follow ISO conventions:
-  * Language Codes: [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)
-  * Country Codes: [ISO_639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+  * Language Codes: [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)
+  * Country Codes: [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 ## Usage
 AllTranslations will require you to have a basic object designed to represent your end user or client you wish to
