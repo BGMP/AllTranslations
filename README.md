@@ -43,7 +43,7 @@ Table of Contents
 Once you have installed AllTranslations, create a new directory named `i18n/` within your `resources/` folder. Here
 is where all the locale files will live in, along with the template strings file.
 
-Here is how the structure should look like at your project:
+Here is how the structure should look like in your project:
 ```
 resources/
 └── i18n/
@@ -89,7 +89,7 @@ public class User {
 
 Then, create a class which will serve all of your translations, extending AllTranslations. The generic object you
 provide to AllTranslations will be that of your end user as explained above. Following the `User` example, it would
-look at follows:
+look as follows:
 ```java
 import java.util.Locale;
 
