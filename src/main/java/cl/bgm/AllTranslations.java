@@ -64,6 +64,7 @@ public abstract class AllTranslations<T> {
       Properties properties = PropertiesUtils.getFromResources(propertiesResourcePath);
       if (properties == null) continue;
 
+      // Extract language tag from .properties file path (e.g. i18n/es_es.properties => "es_es")
       String languageTag =
           propertiesResourcePath.replaceAll(I18N_DIRECTORY + "/", "").replaceAll(".properties", "");
       Locale locale = Locale.forLanguageTag(languageTag.replaceAll("_", "-"));
@@ -135,6 +136,7 @@ public abstract class AllTranslations<T> {
 
   private String replaceArgs(String translated, Locale locale, Object... args) {
     String replacement;
+
     for (int i = 0; i < args.length; i++) {
       if (args[i] instanceof Translatable) {
         replacement = this.get((Translatable) args[i], locale);

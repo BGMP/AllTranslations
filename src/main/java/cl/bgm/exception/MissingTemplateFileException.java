@@ -1,6 +1,6 @@
 package cl.bgm.exception;
 
-/** Missing templates exception. */
+/** Missing template file exception. */
 public class MissingTemplateFileException extends Exception {
 
   public MissingTemplateFileException() {

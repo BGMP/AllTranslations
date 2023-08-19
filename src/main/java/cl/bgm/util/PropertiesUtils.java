@@ -25,7 +25,7 @@ public interface PropertiesUtils {
    * this#getFromResources(String, Charset)}
    *
    * @param path The path to the properties file relative to the resources/ directory.
-   * @return The {@link Properties} loaded from resources, in its standard encoding, or <code>null
+   * @return The {@link Properties} loaded from resources in its standard encoding, or <code>null
    *     </code> if not found.
    */
   static Properties getFromResources(String path) {
