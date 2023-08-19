@@ -59,7 +59,7 @@ public class TranslationTests {
   @DisplayName("Get translation from a missing key.")
   public void testMissingTranslations() {
     String translation = translations.get("test.missing.translation", "es-es");
-    assertEquals("I am missing in es-es.properties", translation);
+    assertEquals("I am missing in es_es.properties", translation);
   }
 
   @Test
