@@ -1,4 +1,4 @@
-# AllTranslations
+# AllTranslations [![build](https://github.com/BGMP/AllTranslations/actions/workflows/build.yml/badge.svg)](https://github.com/BGMP/AllTranslations/actions/workflows/build.yml) [![test](https://github.com/BGMP/AllTranslations/actions/workflows/test.yml/badge.svg)](https://github.com/BGMP/AllTranslations/actions/workflows/test.yml)
 
 <img align="right" width="170" height="170" src="https://user-images.githubusercontent.com/26081543/232375880-516c6c17-bf49-4463-92ed-43dd1b4f7647.png">
 
