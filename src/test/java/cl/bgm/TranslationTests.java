@@ -4,20 +4,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.Locale;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class TranslationTests {
-  private AllTranslations<Object> translations =
-      new AllTranslations<Object>() {
-        @Override
-        public Locale getLocale(Object o) {
-          return null;
-        }
+  private AllTranslations<Object> translations;
 
-        @Override
-        public void setLocale(Object o, Locale locale) {}
-      };
+  @BeforeEach
+  public void setUp() {
+    this.translations =
+        new AllTranslations<Object>() {
+          @Override
+          public Locale getLocale(Object o) {
+            return null;
+          }
+
+          @Override
+          public void setLocale(Object o, Locale locale) {}
+        };
+  }
 
   @Test
   @DisplayName("Load translation files.")
