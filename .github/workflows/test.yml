@@ -16,4 +16,4 @@ jobs:
         with:
           java-version: 1.8
       - name: Maven test
-        run: mvn -Dtest=cl.bgm.** test
+        run: mvn -Dtest=cl.bgm.** test --file pom.xml
