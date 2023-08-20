@@ -26,8 +26,8 @@ public class TranslationTests {
   }
 
   @Test
-  @DisplayName("Load translation files.")
-  public void testTranslationFileNaming() {
+  @DisplayName("Load translation files using language tags.")
+  public void testLanguageTagsNaming() {
     String translation = translations.get("test.hello", "es-es");
     assertEquals("Hola", translation);
 
@@ -38,14 +38,14 @@ public class TranslationTests {
   @Test
   @DisplayName("Get a translation by its key and translate it.")
   public void testNormalTranslations() {
-    String translation = translations.get("test.hello", "es-es");
+    String translation = translations.get("test.hello", Locale.forLanguageTag("es-es"));
     assertEquals("Hola", translation);
   }
 
   @Test
   @DisplayName("Pass and replace arguments into a translation.")
   public void testTranslationArguments() {
-    String translation = translations.get("test.arguments", "es-es", 2);
+    String translation = translations.get("test.arguments", Locale.forLanguageTag("es-es"), 2);
     assertEquals("Hay 2 manzanas", translation);
   }
 
@@ -55,7 +55,7 @@ public class TranslationTests {
     String translation =
         translations.get(
             "test.nested.translations",
-            "es-es",
+                Locale.forLanguageTag("es-es"),
             2,
             Translatable.of("test.nested.translations.liters"));
     assertEquals("El volumen es 2 litros", translation);
@@ -64,7 +64,7 @@ public class TranslationTests {
   @Test
   @DisplayName("Get translation from a missing key.")
   public void testMissingTranslations() {
-    String translation = translations.get("test.missing.translation", "es-es");
+    String translation = translations.get("test.missing.translation", Locale.forLanguageTag("es-es"));
     assertEquals("I am missing in es_es.properties", translation);
   }
 
@@ -78,14 +78,14 @@ public class TranslationTests {
   @Test
   @DisplayName("Get translation from an invalid key.")
   public void testInvalidTranslationKey() {
-    String translation = translations.get("efknreiwhfbedo.dbfi", "es-es");
+    String translation = translations.get("efknreiwhfbedo.dbfi", Locale.forLanguageTag("es-es"));
     assertNull(translation);
   }
 
   @Test
   @DisplayName("Get UTF-8 character from a translation.")
   public void testTranslationsUTF8() {
-    String translation = translations.get("test.utf8.translation", "es-es");
+    String translation = translations.get("test.utf8.translation", Locale.forLanguageTag("es-es"));
     assertEquals("canción", translation);
   }
 }
