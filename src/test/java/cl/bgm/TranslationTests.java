@@ -55,7 +55,7 @@ public class TranslationTests {
     String translation =
         translations.get(
             "test.nested.translations",
-                Locale.forLanguageTag("es-es"),
+            Locale.forLanguageTag("es-es"),
             2,
             Translatable.of("test.nested.translations.liters"));
     assertEquals("El volumen es 2 litros", translation);
@@ -64,7 +64,8 @@ public class TranslationTests {
   @Test
   @DisplayName("Get translation from a missing key.")
   public void testMissingTranslations() {
-    String translation = translations.get("test.missing.translation", Locale.forLanguageTag("es-es"));
+    String translation =
+        translations.get("test.missing.translation", Locale.forLanguageTag("es-es"));
     assertEquals("I am missing in es_es.properties", translation);
   }
 

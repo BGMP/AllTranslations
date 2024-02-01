@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cl.bgm</groupId>
-    <artifactId>AllTranslations</artifactId>
+    <artifactId>alltranslations</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
@@ -75,13 +75,10 @@
 
     <distributionManagement>
         <repository>
-            <id>bgm</id>
-            <url>ftp://maven.bgm.cl/</url>
+            <id>github</id>
+            <name>GitHub BGMP Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/BGMP/AllTranslations</url>
         </repository>
-        <snapshotRepository>
-            <id>bgm</id>
-            <url>ftp://maven.bgm.cl/</url>
-        </snapshotRepository>
     </distributionManagement>
 
     <dependencies>
